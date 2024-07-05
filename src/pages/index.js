@@ -9,7 +9,7 @@ export default function Home() {
       </Head>
       <div className={styles.container}>
         <iframe
-          src="https://kloudfins-los-dev-ed.my.site.com/dsaportal/s/"
+          src="https://cybermatrixsolutions.com/"
           frameBorder="0"
           allowFullScreen
           title="Lending Kart"

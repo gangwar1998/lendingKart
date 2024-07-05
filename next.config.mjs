@@ -1,26 +1,19 @@
-import withPWA from 'next-pwa';
 import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const pwaConfig = {
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development'
-};
+  disable: false
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(process.cwd(), 'styles')],
   },
-};
+}
 
-export default withPWA({
-  ...nextConfig,
-  ...pwaConfig
-});
+export default withPWA(nextConfig);
